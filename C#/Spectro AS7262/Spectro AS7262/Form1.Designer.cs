@@ -83,6 +83,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRef = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -145,7 +148,7 @@
             this.statusStrip1.BackColor = System.Drawing.SystemColors.Window;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 665);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 718);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Padding = new System.Windows.Forms.Padding(2, 0, 21, 0);
             this.statusStrip1.Size = new System.Drawing.Size(1130, 22);
@@ -408,7 +411,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.Control;
-            this.btnSave.Location = new System.Drawing.Point(240, 626);
+            this.btnSave.Location = new System.Drawing.Point(239, 678);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(204, 35);
@@ -420,7 +423,7 @@
             // btnStart
             // 
             this.btnStart.BackColor = System.Drawing.SystemColors.Control;
-            this.btnStart.Location = new System.Drawing.Point(14, 581);
+            this.btnStart.Location = new System.Drawing.Point(13, 581);
             this.btnStart.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(427, 35);
@@ -432,7 +435,7 @@
             // btnClear
             // 
             this.btnClear.BackColor = System.Drawing.SystemColors.Control;
-            this.btnClear.Location = new System.Drawing.Point(14, 626);
+            this.btnClear.Location = new System.Drawing.Point(13, 678);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(204, 35);
@@ -443,11 +446,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(0, 26);
-            this.textBox1.Multiline = true;
+            this.textBox1.Location = new System.Drawing.Point(12, 27);
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox1.Size = new System.Drawing.Size(33, 34);
+            this.textBox1.Size = new System.Drawing.Size(33, 26);
             this.textBox1.TabIndex = 21;
             this.textBox1.Visible = false;
             // 
@@ -511,7 +513,7 @@
             this.chart1.Series.Add(series4);
             this.chart1.Series.Add(series5);
             this.chart1.Series.Add(series6);
-            this.chart1.Size = new System.Drawing.Size(665, 580);
+            this.chart1.Size = new System.Drawing.Size(665, 633);
             this.chart1.TabIndex = 22;
             this.chart1.Text = "chart1";
             title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
@@ -590,7 +592,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.Location = new System.Drawing.Point(452, 625);
+            this.button1.Location = new System.Drawing.Point(452, 678);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(665, 35);
@@ -673,12 +675,45 @@
             this.closeToolStripMenuItem.Text = "&Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
+            // btnRef
+            // 
+            this.btnRef.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRef.Location = new System.Drawing.Point(236, 624);
+            this.btnRef.Name = "btnRef";
+            this.btnRef.Size = new System.Drawing.Size(204, 35);
+            this.btnRef.TabIndex = 28;
+            this.btnRef.Text = "Measure Reference";
+            this.btnRef.UseVisualStyleBackColor = false;
+            this.btnRef.Click += new System.EventHandler(this.btnRef_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 631);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(128, 20);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Reference CH1: ";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(150, 628);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(80, 26);
+            this.textBox2.TabIndex = 29;
+            this.textBox2.Text = "0.000";
+            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1130, 687);
+            this.ClientSize = new System.Drawing.Size(1130, 740);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.btnRef);
             this.Controls.Add(this.checkBlue);
             this.Controls.Add(this.checkGreen);
             this.Controls.Add(this.checkRed);
@@ -692,6 +727,7 @@
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.groupBox1);
@@ -767,6 +803,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
+        private System.Windows.Forms.Button btnRef;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }
 

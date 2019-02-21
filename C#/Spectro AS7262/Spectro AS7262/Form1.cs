@@ -29,6 +29,8 @@ namespace Spectro_AS7262
         double mMean1, mMean2, mMean3, mMean4, mMean5, mMean6 = 0;
         private int lMean = 10;
 
+        double[] reference = { 0, 0, 0, 0, 0, 0 };
+
         public Form1()
         {
             InitializeComponent();
@@ -40,6 +42,7 @@ namespace Spectro_AS7262
             }
 
             serialPort1.DataReceived += SerialPort1_DataReceived;
+            btnRef.Enabled = false;
 
             foreach (Series serie in chart1.Series.ToList())
             {
@@ -131,16 +134,12 @@ namespace Spectro_AS7262
                         mMean6 += mean6[i];                           // Sum up all the values son list.
                     mMean6 = mMean6 / mean6.Count;                     // Divide mMean over the number of elements of List to obtain the mean.
 
-
-
-
-                    //UpdateText(mMean1);                              // Call UpdateText Method.
-                    chart1.Series[0].Points.AddY(mMean1);
-                    chart1.Series[1].Points.AddY(mMean2);
-                    chart1.Series[2].Points.AddY(mMean3);
-                    chart1.Series[3].Points.AddY(mMean4);
-                    chart1.Series[4].Points.AddY(mMean5);
-                    chart1.Series[5].Points.AddY(mMean6);
+                    chart1.Series[0].Points.AddY(mMean1 - reference[0]);
+                    chart1.Series[1].Points.AddY(mMean2 - reference[1]);
+                    chart1.Series[2].Points.AddY(mMean3 - reference[2]);
+                    chart1.Series[3].Points.AddY(mMean4 - reference[3]);
+                    chart1.Series[4].Points.AddY(mMean5 - reference[4]);
+                    chart1.Series[5].Points.AddY(mMean6 - reference[5]);
 
                     if (chart1.Series[0].Points.Count >= 100)
                     {
@@ -333,6 +332,8 @@ namespace Spectro_AS7262
                 btnStart.Text = "Stop";
                 readEnabled = true;
 
+                btnRef.Enabled = true;
+
                 foreach (Control item in this.Controls)
                 {
                     if (item is CheckBox)
@@ -352,12 +353,51 @@ namespace Spectro_AS7262
                 btnStart.Text = "Start";
                 readEnabled = false;
 
+                btnRef.Enabled = false;
+
                 foreach (Control item in this.Controls)
                 {
                     if (item is CheckBox)
                         ((CheckBox)item).Enabled = true;
                 }
             }
+        }
+
+        private void btnRef_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < reference.Length; i++)
+                reference[i] = 0;
+
+            readEnabled = false;
+
+            for (int i = 0; i < chart1.Series.Count; i++)
+                chart1.Series[i].Points.Clear();
+
+            readEnabled = true;
+
+            MessageBox.Show(this, "Measuring reference, pease wait", "Reference...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            if (chart1.Series[0].Points.Count == 100)
+                readEnabled = false;
+
+            for (int i = 0; i < chart1.Series.Count; i++)
+            {
+                for (int j = 0; j < chart1.Series[i].Points.Count; j++)
+                {
+                    reference[i] += chart1.Series[i].Points[j].XValue;
+                }
+                reference[i] /= chart1.Series[i].Points.Count;
+            }
+
+            for (int i = 0; i < chart1.Series.Count; i++)
+                chart1.Series[i].Points.Clear();
+
+
+            textBox2.Text = "" + reference[0];
+
+            MessageBox.Show(this, "Reference measured, you can start to work.", "Reference.", MessageBoxButtons.OK, MessageBoxIcon.None);
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
