@@ -1,0 +1,10 @@
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\bin\Debug\Spectro AS7262.exe.config
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\bin\Debug\Spectro AS7262.exe
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\bin\Debug\Spectro AS7262.pdb
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.csprojAssemblyReference.cache
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro_AS7262.Form1.resources
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro_AS7262.Properties.Resources.resources
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.csproj.GenerateResource.cache
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.csproj.CoreCompileInputs.cache
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.exe
+C:\Users\killan\Universidad de Los Andes\Ana Lucia Campaña Perilla - 1 Nanothings\Espectro\Code\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.pdb
