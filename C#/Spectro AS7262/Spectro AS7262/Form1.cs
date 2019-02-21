@@ -134,12 +134,13 @@ namespace Spectro_AS7262
                         mMean6 += mean6[i];                           // Sum up all the values son list.
                     mMean6 = mMean6 / mean6.Count;                     // Divide mMean over the number of elements of List to obtain the mean.
 
-                    chart1.Series[0].Points.AddY(mMean1 - reference[0]);
-                    chart1.Series[1].Points.AddY(mMean2 - reference[1]);
-                    chart1.Series[2].Points.AddY(mMean3 - reference[2]);
-                    chart1.Series[3].Points.AddY(mMean4 - reference[3]);
-                    chart1.Series[4].Points.AddY(mMean5 - reference[4]);
-                    chart1.Series[5].Points.AddY(mMean6 - reference[5]);
+
+                    chart1.Series[0].Points.AddY(-Math.Log(reference[0] / mMean1) * FactorCorrection);
+                    chart1.Series[1].Points.AddY(-Math.Log(reference[1] / mMean1) * FactorCorrection);
+                    chart1.Series[2].Points.AddY(-Math.Log(reference[2] / mMean1) * FactorCorrection);
+                    chart1.Series[3].Points.AddY(-Math.Log(reference[3] / mMean1) * FactorCorrection);
+                    chart1.Series[4].Points.AddY(-Math.Log(reference[4] / mMean1) * FactorCorrection);
+                    chart1.Series[5].Points.AddY(-Math.Log(reference[5] / mMean1) * FactorCorrection);
 
                     if (chart1.Series[0].Points.Count >= 100)
                     {
