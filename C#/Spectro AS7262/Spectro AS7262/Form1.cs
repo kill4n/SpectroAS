@@ -19,6 +19,17 @@ namespace Spectro_AS7262
         private string line;
         private double FactorCorrection = 5.47715;
         private StreamWriter sw;
+        List<double> mean1 = new List<double>();
+        List<double> mean2 = new List<double>();
+        List<double> mean3 = new List<double>();
+        List<double> mean4 = new List<double>();
+        List<double> mean5 = new List<double>();
+        List<double> mean6 = new List<double>();
+
+        double mMean1, mMean2, mMean3, mMean4, mMean5, mMean6 = 0;
+        private int lMean = 10;
+
+        double[] reference = { 0, 0, 0, 0, 0, 0 };
 
         public Form1()
         {
@@ -31,6 +42,7 @@ namespace Spectro_AS7262
             }
 
             serialPort1.DataReceived += SerialPort1_DataReceived;
+            btnRef.Enabled = false;
 
             foreach (Series serie in chart1.Series.ToList())
             {
@@ -73,12 +85,61 @@ namespace Spectro_AS7262
                 string[] data = value.Split(';');
                 if (data.Length == 6)
                 {
-                    chart1.Series[0].Points.AddY(double.Parse(data[0]));
-                    chart1.Series[1].Points.AddY(double.Parse(data[1]));
-                    chart1.Series[2].Points.AddY(double.Parse(data[2]));
-                    chart1.Series[3].Points.AddY(double.Parse(data[3]));
-                    chart1.Series[4].Points.AddY(double.Parse(data[4]));
-                    chart1.Series[5].Points.AddY(double.Parse(data[5]));
+                    // mean 1
+                    mMean1 = 0;
+                    mean1.Add(double.Parse(data[0]));                                 // Add new value to mean List.
+                    if (mean1.Count > lMean)                            // Check is mean list has more than 10 elements.
+                        mean1.RemoveAt(0);                           // Remove extra value to always have max 10 values on list.
+                    for (int i = 0; i < mean1.Count; i++)            // Loop over all the values of the mean list.
+                        mMean1 += mean1[i];                           // Sum up all the values son list.
+                    mMean1 = mMean1 / mean1.Count;                     // Divide mMean over the number of elements of List to obtain the mean.
+                    // mean 2
+                    mMean2 = 0;
+                    mean2.Add(double.Parse(data[1]));                                 // Add new value to mean List.
+                    if (mean2.Count > lMean)                            // Check is mean list has more than 10 elements.
+                        mean2.RemoveAt(0);                           // Remove extra value to always have max 10 values on list.
+                    for (int i = 0; i < mean2.Count; i++)            // Loop over all the values of the mean list.
+                        mMean2 += mean2[i];                           // Sum up all the values son list.
+                    mMean2 = mMean2 / mean2.Count;                     // Divide mMean over the number of elements of List to obtain the mean.
+                    // mean 3
+                    mMean3 = 0;
+                    mean3.Add(double.Parse(data[2]));                                 // Add new value to mean List.
+                    if (mean3.Count > lMean)                            // Check is mean list has more than 10 elements.
+                        mean3.RemoveAt(0);                           // Remove extra value to always have max 10 values on list.
+                    for (int i = 0; i < mean3.Count; i++)            // Loop over all the values of the mean list.
+                        mMean3 += mean3[i];                           // Sum up all the values son list.
+                    mMean3 = mMean3 / mean3.Count;                     // Divide mMean over the number of elements of List to obtain the mean.
+                    //mean 4
+                    mMean4 = 0;
+                    mean4.Add(double.Parse(data[3]));                                 // Add new value to mean List.
+                    if (mean4.Count > lMean)                            // Check is mean list has more than 10 elements.
+                        mean4.RemoveAt(0);                           // Remove extra value to always have max 10 values on list.
+                    for (int i = 0; i < mean4.Count; i++)            // Loop over all the values of the mean list.
+                        mMean4 += mean4[i];                           // Sum up all the values son list.
+                    mMean4 = mMean4 / mean4.Count;                     // Divide mMean over the number of elements of List to obtain the mean.
+                    //mean 5
+                    mMean5 = 0;
+                    mean5.Add(double.Parse(data[4]));                                 // Add new value to mean List.
+                    if (mean5.Count > lMean)                            // Check is mean list has more than 10 elements.
+                        mean5.RemoveAt(0);                           // Remove extra value to always have max 10 values on list.
+                    for (int i = 0; i < mean5.Count; i++)            // Loop over all the values of the mean list.
+                        mMean5 += mean5[i];                           // Sum up all the values son list.
+                    mMean5 = mMean5 / mean5.Count;                     // Divide mMean over the number of elements of List to obtain the mean.
+                    //mean 6
+                    mMean6 = 0;
+                    mean6.Add(double.Parse(data[5]));                                 // Add new value to mean List.
+                    if (mean6.Count > lMean)                            // Check is mean list has more than 10 elements.
+                        mean6.RemoveAt(0);                           // Remove extra value to always have max 10 values on list.
+                    for (int i = 0; i < mean6.Count; i++)            // Loop over all the values of the mean list.
+                        mMean6 += mean6[i];                           // Sum up all the values son list.
+                    mMean6 = mMean6 / mean6.Count;                     // Divide mMean over the number of elements of List to obtain the mean.
+
+                    chart1.Series[0].Points.AddY(mMean1 - reference[0]);
+                    chart1.Series[1].Points.AddY(mMean2 - reference[1]);
+                    chart1.Series[2].Points.AddY(mMean3 - reference[2]);
+                    chart1.Series[3].Points.AddY(mMean4 - reference[3]);
+                    chart1.Series[4].Points.AddY(mMean5 - reference[4]);
+                    chart1.Series[5].Points.AddY(mMean6 - reference[5]);
 
                     if (chart1.Series[0].Points.Count >= 100)
                     {
@@ -271,6 +332,8 @@ namespace Spectro_AS7262
                 btnStart.Text = "Stop";
                 readEnabled = true;
 
+                btnRef.Enabled = true;
+
                 foreach (Control item in this.Controls)
                 {
                     if (item is CheckBox)
@@ -290,12 +353,51 @@ namespace Spectro_AS7262
                 btnStart.Text = "Start";
                 readEnabled = false;
 
+                btnRef.Enabled = false;
+
                 foreach (Control item in this.Controls)
                 {
                     if (item is CheckBox)
                         ((CheckBox)item).Enabled = true;
                 }
             }
+        }
+
+        private void btnRef_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < reference.Length; i++)
+                reference[i] = 0;
+
+            readEnabled = false;
+
+            for (int i = 0; i < chart1.Series.Count; i++)
+                chart1.Series[i].Points.Clear();
+
+            readEnabled = true;
+
+            MessageBox.Show(this, "Measuring reference, pease wait", "Reference...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            if (chart1.Series[0].Points.Count == 100)
+                readEnabled = false;
+
+            for (int i = 0; i < chart1.Series.Count; i++)
+            {
+                for (int j = 0; j < chart1.Series[i].Points.Count; j++)
+                {
+                    reference[i] += chart1.Series[i].Points[j].XValue;
+                }
+                reference[i] /= chart1.Series[i].Points.Count;
+            }
+
+            for (int i = 0; i < chart1.Series.Count; i++)
+                chart1.Series[i].Points.Clear();
+
+
+            textBox2.Text = "" + reference[0];
+
+            MessageBox.Show(this, "Reference measured, you can start to work.", "Reference.", MessageBoxButtons.OK, MessageBoxIcon.None);
+
         }
 
         private void btnClear_Click(object sender, EventArgs e)
