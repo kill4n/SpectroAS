@@ -136,11 +136,11 @@ namespace Spectro_AS7262
 
 
                     chart1.Series[0].Points.AddY(-Math.Log(reference[0] / mMean1) * FactorCorrection);
-                    chart1.Series[1].Points.AddY(-Math.Log(reference[1] / mMean1) * FactorCorrection);
-                    chart1.Series[2].Points.AddY(-Math.Log(reference[2] / mMean1) * FactorCorrection);
-                    chart1.Series[3].Points.AddY(-Math.Log(reference[3] / mMean1) * FactorCorrection);
-                    chart1.Series[4].Points.AddY(-Math.Log(reference[4] / mMean1) * FactorCorrection);
-                    chart1.Series[5].Points.AddY(-Math.Log(reference[5] / mMean1) * FactorCorrection);
+                    chart1.Series[1].Points.AddY(-Math.Log(reference[1] / mMean2) * FactorCorrection);
+                    chart1.Series[2].Points.AddY(-Math.Log(reference[2] / mMean3) * FactorCorrection);
+                    chart1.Series[3].Points.AddY(-Math.Log(reference[3] / mMean4) * FactorCorrection);
+                    chart1.Series[4].Points.AddY(-Math.Log(reference[4] / mMean5) * FactorCorrection);
+                    chart1.Series[5].Points.AddY(-Math.Log(reference[5] / mMean6) * FactorCorrection);
 
                     if (chart1.Series[0].Points.Count >= 100)
                     {
