@@ -42,7 +42,7 @@ namespace Spectro_AS7262
             }
 
             serialPort1.DataReceived += SerialPort1_DataReceived;
-            btnRef.Enabled = false;
+            //btnRef.Enabled = false;
 
             foreach (Series serie in chart1.Series.ToList())
             {
@@ -380,6 +380,7 @@ namespace Spectro_AS7262
 
             if (chart1.Series[0].Points.Count == 100)
                 readEnabled = false;
+
 
             for (int i = 0; i < chart1.Series.Count; i++)
             {
