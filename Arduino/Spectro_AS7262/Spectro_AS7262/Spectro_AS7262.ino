@@ -27,7 +27,7 @@ AS726X sensor;//Creates the sensor object
 void setup() {
   // Leds direction
   pinMode(LEDR, OUTPUT); pinMode(LEDG, OUTPUT); pinMode(LEDB, OUTPUT);
-
+  Serial.begin(115200);
   sensor.begin(Wire, 0, 3);//Initializes the sensor with non default values
   sensor.setIntegrationTime(10); //10 * 2.8ms = 28ms. 0 to 255 is valid.
   //If you use Mode 2 or 3 (all the colors) then integration time is double. 28*2 = 56ms between readings.
@@ -42,10 +42,11 @@ enum AS7262Enum {
   TAKE_MS = 0X50, TAKE_PR = 0X60, INTTIME = 0X70, R_ON = 0xC0, R_OF = 0xC1, G_ON = 0xC2, G_OF = 0xC3, B_ON = 0xC4,
   B_OF = 0xC5
 };
-
+byte data;
 void loop() {
   if (Serial.available() > 0) {
-    switch (Serial.read()) {
+    data=Serial.read();
+    switch (data) {
       case MMODE_0: sensor.setMeasurementMode(0); break;
       case MMODE_1: sensor.setMeasurementMode(1); break;
       case MMODE_2: sensor.setMeasurementMode(2); break;

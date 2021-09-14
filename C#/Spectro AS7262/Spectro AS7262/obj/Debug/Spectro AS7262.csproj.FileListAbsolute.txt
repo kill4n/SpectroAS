@@ -28,3 +28,13 @@ C:\Users\Crhistian\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\o
 C:\Users\Crhistian\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.csproj.CoreCompileInputs.cache
 C:\Users\Crhistian\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.exe
 C:\Users\Crhistian\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.pdb
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\bin\Debug\Spectro AS7262.exe.config
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\bin\Debug\Spectro AS7262.exe
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\bin\Debug\Spectro AS7262.pdb
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.csproj.AssemblyReference.cache
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro_AS7262.Form1.resources
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro_AS7262.Properties.Resources.resources
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.csproj.GenerateResource.cache
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.csproj.CoreCompileInputs.cache
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.exe
+C:\Users\camilo\Documents\GitHub\SpectroAS\C#\Spectro AS7262\Spectro AS7262\obj\Debug\Spectro AS7262.pdb
